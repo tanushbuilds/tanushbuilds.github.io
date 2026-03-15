@@ -266,7 +266,7 @@ function initParticles() {
 
 /* ── 7. Render Projects from data ────────────────────────── */
 // Emoji icons per project index
-const PROJECT_ICONS = ["🤖", "🎮", "⚡", "🧠", "🔀", "⚙️"];
+const PROJECT_ICONS = ["🤖", "🔬", "🕯️", "🗂️", "🎮", "📅"];
 
 function renderProjects() {
   const grid = document.getElementById("projects-grid");
