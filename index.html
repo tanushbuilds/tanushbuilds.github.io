@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Tanush — 14-year-old developer building Agentic AI Systems, Game Engines, and Intelligent Software." />
+  <meta name="keywords" content="Tanush, developer, AI, agentic AI, game development, portfolio" />
+  <meta property="og:title" content="Tanush · Developer Portfolio" />
+  <meta property="og:description" content="14-year-old developer focused on AI systems, agentic AI, and game dev." />
+  <meta property="og:type" content="website" />
+  <title>Tanush · Developer</title>
+
+  <!-- Favicon (emoji fallback) -->
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- Noise texture -->
+  <div class="noise-overlay" aria-hidden="true"></div>
+
+  <!-- Particle canvas -->
+  <canvas id="particles-canvas" aria-hidden="true"></canvas>
+
+  <!-- Scroll progress bar -->
+  <div id="progress-bar" role="progressbar" aria-hidden="true"></div>
+
+  <!-- ════════════════════════════════════════
+       NAVBAR
+  ════════════════════════════════════════ -->
+  <nav id="navbar" role="navigation" aria-label="Primary navigation">
+    <a href="#hero" class="nav-logo">
+      &lt;<span>tanush</span> /&gt;
+    </a>
+
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#github">GitHub</a></li>
+    </ul>
+
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- ════════════════════════════════════════
+       HERO
+  ════════════════════════════════════════ -->
+  <section id="hero" aria-label="Hero">
+    <div class="hero-inner">
+
+      <div class="reveal">
+        <div class="terminal-prompt">
+          <span class="prompt-user">tanush</span>
+          <span style="color:var(--text-muted)">@</span>
+          <span class="prompt-host">dev</span>
+          <span style="color:var(--text-muted)">:</span>
+          <span class="prompt-dir">~/portfolio</span>
+          <span style="color:var(--text-muted)">$</span>
+          <span style="color:var(--green); margin-left:4px;">whoami</span>
+        </div>
+      </div>
+
+      <h1 class="hero-name reveal delay-2">Tanush</h1>
+
+      <p class="hero-sub reveal delay-3">
+        Developer
+        <span class="separator">·</span>
+        AI Systems
+        <span class="separator">·</span>
+        Game Dev
+        <span id="hero-cursor"></span>
+      </p>
+
+      <p class="hero-desc reveal delay-3" style="font-size:0.8rem; color:var(--text-muted); margin-bottom:0.6rem;">
+        &gt; <span id="hero-typewriter" style="color:var(--green)"></span>
+      </p>
+
+      <p class="hero-desc reveal delay-4">
+        14-year-old developer obsessed with building things that think. I design agentic AI systems that plan, reason,
+        and act — and build game worlds from the ground up. Every project is an experiment in pushing what's possible.
+      </p>
+
+      <div class="hero-buttons reveal delay-5">
+        <a href="#projects" class="btn btn-primary">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="5 3 19 12 5 21 5 3" />
+          </svg>
+          View Projects
+        </a>
+        <a href="https://github.com/tanushbuilds" target="_blank" rel="noopener" class="btn btn-outline">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z" />
+          </svg>
+          GitHub
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
+       ABOUT
+  ════════════════════════════════════════ -->
+  <section id="about" aria-labelledby="about-title">
+    <div class="section-header reveal">
+      <p class="section-label">About me</p>
+      <h2 class="section-title" id="about-title">
+        Who is <span class="accent">Tanush</span>?
+      </h2>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-text reveal-left">
+        <p>
+          I'm a <span class="hl-green">14-year-old developer</span> who builds things at the intersection of
+          intelligence and interaction.
+        </p>
+        <p>
+          My deepest obsession is <span class="hl-cyan">Agentic AI</span> — systems that don't just answer questions but
+          plan, use tools, and execute multi-step goals autonomously. I build agents from scratch, no frameworks —
+          just raw LLM APIs, custom reasoning loops, and real tool use.
+        </p>
+        <p>
+          I also build <span class="hl-amber">games</span> — modular systems, atmospheric environments, psychological
+          horror. I love crafting worlds that feel alive and unsettling.
+        </p>
+        <p>
+          My stack is <span class="hl-green">Python, JavaScript, and C#</span>. I've built web apps with
+          HTML/CSS/JS and Django, and I reach for Unity when it's time to make something you can play.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
+       PROJECTS
+  ════════════════════════════════════════ -->
+  <section id="projects" aria-labelledby="projects-title">
+    <div class="section-header reveal">
+      <p class="section-label">Work</p>
+      <h2 class="section-title" id="projects-title">
+        Featured <span class="accent">Projects</span>
+      </h2>
+    </div>
+
+    <!-- Cards are injected by renderProjects() in script.js -->
+    <div class="projects-grid" id="projects-grid" aria-live="polite">
+      <p style="color:var(--text-muted); font-size:0.8rem;">Loading projects...</p>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
+       SKILLS
+  ════════════════════════════════════════ -->
+  <section id="skills" aria-labelledby="skills-title">
+    <div class="section-header reveal">
+      <p class="section-label">Toolkit</p>
+      <h2 class="section-title" id="skills-title">
+        Skills &amp; <span class="accent">Technologies</span>
+      </h2>
+    </div>
+
+    <div class="skills-container">
+
+      <!-- Languages -->
+      <div class="reveal delay-1">
+        <p class="skill-group-title">Languages</p>
+        <div class="skill-list">
+
+          <div class="skill-item">
+            <div class="skill-header">
+              <span class="skill-name">Python</span>
+              <span class="skill-pct">88%</span>
+            </div>
+            <div class="skill-bar-bg">
+              <div class="skill-bar" data-pct="88"></div>
+            </div>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-header">
+              <span class="skill-name">JavaScript</span>
+              <span class="skill-pct">78%</span>
+            </div>
+            <div class="skill-bar-bg">
+              <div class="skill-bar" data-pct="78"></div>
+            </div>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-header">
+              <span class="skill-name">C#</span>
+              <span class="skill-pct">65%</span>
+            </div>
+            <div class="skill-bar-bg">
+              <div class="skill-bar" data-pct="65"></div>
+            </div>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-header">
+              <span class="skill-name">HTML / CSS</span>
+              <span class="skill-pct">82%</span>
+            </div>
+            <div class="skill-bar-bg">
+              <div class="skill-bar" data-pct="82"></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Fields -->
+      <div class="reveal delay-2">
+        <p class="skill-group-title">Fields &amp; Domains</p>
+        <div class="field-grid">
+          <div class="field-card">
+            <span class="fc-icon">🤖</span>
+            Agentic AI
+          </div>
+          <div class="field-card">
+            <span class="fc-icon">🧠</span>
+            LLM Systems
+          </div>
+          <div class="field-card">
+            <span class="fc-icon">🎮</span>
+            Game Development
+          </div>
+          <div class="field-card">
+            <span class="fc-icon">🔁</span>
+            Automation
+          </div>
+          <div class="field-card">
+            <span class="fc-icon">🌐</span>
+            Web Development
+          </div>
+          <div class="field-card">
+            <span class="fc-icon">📡</span>
+            AI Research
+          </div>
+          <div class="field-card">
+            <span class="fc-icon">🐍</span>
+            Django
+          </div>
+          <div class="field-card">
+            <span class="fc-icon">🏗️</span>
+            Web Apps
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
+       GITHUB CTA
+  ════════════════════════════════════════ -->
+  <section id="github" aria-labelledby="github-title">
+    <div class="github-cta reveal">
+      <div class="github-icon-wrap" aria-hidden="true">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="var(--green)">
+          <path
+            d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z" />
+        </svg>
+      </div>
+
+      <h2 class="section-title" id="github-title" style="margin-bottom:1rem;">
+        Explore on <span class="accent">GitHub</span>
+      </h2>
+
+      <p>
+        All my projects live on GitHub — open source, well-documented, and always evolving. Dive into the repos, fork
+        something, or just see how I think in code.
+      </p>
+
+      <div class="github-stats">
+        <div class="gh-stat">
+          <span class="gh-stat-num">7+</span>
+          <span class="gh-stat-label">Repositories</span>
+        </div>
+        <div class="gh-stat">
+          <span class="gh-stat-num">100%</span>
+          <span class="gh-stat-label">Open Source</span>
+        </div>
+        <div class="gh-stat">
+          <span class="gh-stat-num">∞</span>
+          <span class="gh-stat-label">Commits</span>
+        </div>
+      </div>
+
+      <a href="https://github.com/tanushbuilds" target="_blank" rel="noopener" class="btn btn-primary">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+          <path
+            d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z" />
+        </svg>
+        github.com/tanushbuilds
+      </a>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
+       FOOTER
+  ════════════════════════════════════════ -->
+  <footer>
+    <p class="footer-left">
+      Built by <a href="#hero">Tanush</a> · Pure HTML / CSS / JS · No frameworks
+    </p>
+    <p class="footer-right">
+      // the best way to learn is to build
+    </p>
+  </footer>
+
+  <script src="projects.js"></script>
+  <script src="script.js"></script>
+
+</body>
+
+</html>
