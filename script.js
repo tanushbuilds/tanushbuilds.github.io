@@ -3,6 +3,82 @@
    Vanilla JS — no frameworks, no build tools required
    ============================================================ */
 
+/* ── Smooth Inertia Scroll ── */
+function initSmoothScroll() {
+  if ("ontouchstart" in window) return;
+
+  document.documentElement.style.scrollBehavior = "auto";
+
+  let currentY = window.scrollY;
+  let targetY = window.scrollY;
+  let rafId = null;
+  const ease = 0.08;
+
+  window.addEventListener(
+    "wheel",
+    (e) => {
+      e.preventDefault();
+      targetY += e.deltaY * 1.2;
+      targetY = Math.max(0, Math.min(targetY, maxScroll()));
+      startLoop();
+    },
+    { passive: false },
+  );
+
+  window.addEventListener("keydown", (e) => {
+    const keys = {
+      ArrowDown: 80,
+      ArrowUp: -80,
+      PageDown: window.innerHeight * 0.85,
+      PageUp: -window.innerHeight * 0.85,
+      End: maxScroll(),
+      Home: -maxScroll(),
+    };
+    if (keys[e.key] !== undefined) {
+      e.preventDefault();
+      targetY += keys[e.key];
+      targetY = Math.max(0, Math.min(targetY, maxScroll()));
+      startLoop();
+    }
+  });
+
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener("click", (e) => {
+      const id = anchor.getAttribute("href").slice(1);
+      const el = document.getElementById(id);
+      if (!el) return;
+      e.preventDefault();
+      targetY = el.getBoundingClientRect().top + window.scrollY - 64;
+      targetY = Math.max(0, Math.min(targetY, maxScroll()));
+      startLoop();
+    });
+  });
+
+  function maxScroll() {
+    return document.documentElement.scrollHeight - window.innerHeight;
+  }
+
+  function startLoop() {
+    if (!rafId) rafId = requestAnimationFrame(loop);
+  }
+
+  function loop() {
+    const diff = targetY - currentY;
+
+    currentY += diff * ease;
+
+    if (Math.abs(diff) < 0.5) {
+      currentY = targetY;
+      window.scrollTo(0, currentY);
+      rafId = null;
+      return;
+    }
+
+    window.scrollTo(0, currentY);
+    rafId = requestAnimationFrame(loop);
+  }
+}
+
 /* ── 1. Scroll Progress Bar ──────────────────────────────── */
 function initProgressBar() {
   const bar = document.getElementById("progress-bar");
@@ -384,6 +460,7 @@ function initActiveNav() {
 
 /* ── Boot ─────────────────────────────────────────────────── */
 document.addEventListener("DOMContentLoaded", () => {
+  initSmoothScroll();
   initProgressBar();
   initNavbar();
   initHeroLetters();
